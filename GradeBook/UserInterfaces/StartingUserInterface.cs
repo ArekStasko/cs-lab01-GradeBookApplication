@@ -38,7 +38,7 @@ namespace GradeBook.UserInterfaces
             var parts = command.Split(' ');
             if (parts.Length != 3)
             {
-                Console.WriteLine("Command not valid, Create requires a name.");
+                Console.WriteLine("command not valid, create requires a name and type of gradebook.");
                 return;
             }
             var name = parts[2];
@@ -46,8 +46,8 @@ namespace GradeBook.UserInterfaces
             bool isCorrectName = Enum.TryParse(name, true, out GradeBookType validationEnum);
             if (!isCorrectName)
             {
-                Console.WriteLine("incorrect is not a supported type of gradebook, please try again");
-                CommandLoop();
+                Console.WriteLine($"{name} is not a supported type of gradebook, please try again");
+                return;
             }
             
             BaseGradeBook gradeBook = new BaseGradeBook(name);
@@ -77,7 +77,7 @@ namespace GradeBook.UserInterfaces
             Console.WriteLine();
             Console.WriteLine("GradeBook accepts the following commands:");
             Console.WriteLine();
-            Console.WriteLine("Create 'Name' - Creates a new gradebook where 'Name' is the name of the gradebook.");
+            Console.WriteLine("create 'name' 'type' - creates a new gradebook where 'name' is the name of the gradebook and 'type' is what type of grading it should use.");
             Console.WriteLine();
             Console.WriteLine("Load 'Name' - Loads the gradebook with the provided 'Name'.");
             Console.WriteLine();
