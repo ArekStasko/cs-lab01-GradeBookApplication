@@ -5,7 +5,7 @@ namespace GradeBookTests
 {
     public static class TestHelpers
     {
-        private static readonly string _projectName = "GradeBook";
+        private static readonly string _projectName = "Grade";
 
         public static Type GetUserType(string fullName)
         {
