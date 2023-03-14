@@ -24,12 +24,13 @@ namespace GradeBookTests
         public void RefactorGradeBooksAndStartingUserInterface()
         {
             //GradeBook.GradeBooks.StandardGradeBook
-            var standardGradeBook = TestHelpers.GetUserType("GradeBook.Enums.GradeBookType");
-            var constructor = standardGradeBook.GetConstructors().FirstOrDefault();
-            var parameters = constructor.GetParameters();
+            var standardGradeBook = TestHelpers.GetUserType("GradeBook.GradeBooks.StandardGradeBook");
 
             Assert.True(standardGradeBook != null, "`StandardGradeBook` wasn't found in the `GradeBooks.GradeBook` namespace.");
 
+            var constructor = standardGradeBook.GetConstructors().FirstOrDefault();
+            var parameters = constructor.GetParameters();
+            
             Assert.True(parameters.Count() == 2 && parameters[0].ParameterType == typeof(string) && parameters[1].ParameterType == typeof(bool), "`GradeBook.GradeBooks.BaseGradeBook`'s constructor doesn't have the correct parameters. It should be a `string` and then a `bool`.");
         }
 
